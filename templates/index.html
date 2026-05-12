@@ -1,0 +1,67 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>For You ❤️</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body
+data-images='{{ images | tojson }}'>
+
+<div class="container">
+
+    <h1>Hey {{ name }} 💖</h1>
+
+    <button id="loveBtn"
+            data-name='{{ name | tojson }}'>
+
+        Click Me ❤️
+
+    </button>
+
+    <p id="message"></p>
+
+    <img id="slideshow"
+         class="love-img"
+         src="">
+
+    <div id="finalBox"
+         style="display:none;">
+
+        <h2>Do you love me? 😏</h2>
+
+        <button onclick="yesClicked()">
+            YES 💖
+        </button>
+
+        <button id="noBtn">
+            NO 😈
+        </button>
+
+    </div>
+
+</div>
+
+<audio id="music" loop>
+
+    <source src="{{ url_for('static', filename='song.mp3') }}">
+
+</audio>
+
+<audio id="beat">
+
+    <source src="{{ url_for('static', filename='beat.mp3') }}">
+
+</audio>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

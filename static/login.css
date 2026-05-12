@@ -1,0 +1,150 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:linear-gradient(135deg,#dcd8ff,#b9b4ff);
+}
+
+/* MAIN WALLPAPER */
+
+.main-box{
+
+    width:85%;
+
+    height:85vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        rgba(90,70,255,0.15),
+        rgba(25,10,80,0.4)
+    ),
+
+    url('/static/wallpapers/bg.png');
+
+    background-size:cover;
+
+    background-position:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* LOGIN CARD */
+
+.login-box{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:350px;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,0.35);
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(12px);
+
+    text-align:center;
+
+    color:white;
+}
+
+/* TITLE */
+
+.login-box h1{
+
+    margin-bottom:25px;
+}
+
+/* INPUT */
+
+.input-box{
+
+    margin-bottom:18px;
+}
+
+.input-box input{
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+}
+
+.input-box input::placeholder{
+
+    color:#ddd;
+}
+
+/* BUTTON */
+
+.login-box button{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:white;
+
+    color:#5c3dff;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* REGISTER */
+
+.register{
+
+    margin-top:18px;
+}
+
+.register a{
+
+    color:white;
+
+    text-decoration:none;
+}

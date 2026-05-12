@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Upload Photos 💖</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='upload.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Enter Her/His Name 💖</h1>
+
+    <form method="POST"
+          enctype="multipart/form-data"
+          onsubmit="return validateFiles()">
+
+        <input type="text"
+               name="name"
+               placeholder="Enter Name..."
+               required>
+
+        <br><br>
+
+        <!-- REAL FILE INPUT -->
+        <input type="file"
+               id="fileInput"
+               multiple
+               accept="image/*">
+
+        <!-- HIDDEN INPUT -->
+        <input type="file"
+               id="realInput"
+               name="photos"
+               multiple
+               hidden>
+
+        <p>
+            Minimum 3 and Maximum 10 Images Required ❤️
+        </p>
+
+        <div id="preview"></div>
+
+        <button type="submit">
+            Create Magic ✨
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+let input = document.getElementById("fileInput");
+
+let realInput = document.getElementById("realInput");
+
+let preview = document.getElementById("preview");
+
+let allFiles = [];
+
+/* IMAGE PREVIEW */
+
+input.addEventListener("change", function () {
+
+    let files = Array.from(this.files);
+
+    allFiles = allFiles.concat(files);
+
+    preview.innerHTML = "";
+
+    allFiles.forEach(file => {
+
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+
+            let div = document.createElement("div");
+
+            div.className = "img-box";
+
+            let img = document.createElement("img");
+
+            img.src = e.target.result;
+
+            div.appendChild(img);
+
+            preview.appendChild(div);
+        };
+
+        reader.readAsDataURL(file);
+    });
+});
+
+/* VALIDATION */
+
+function validateFiles(){
+
+    if(allFiles.length < 3){
+
+        alert("Minimum 3 images required 😤");
+
+        return false;
+    }
+
+    if(allFiles.length > 10){
+
+        alert("Maximum 10 images allowed 😤");
+
+        return false;
+    }
+
+    let dt = new DataTransfer();
+
+    allFiles.forEach(file => dt.items.add(file));
+
+    realInput.files = dt.files;
+
+    return true;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='history.css') }}">
+
+</head>
+
+<body>
+
+<h1>Your Created Websites ❤️</h1>
+
+<div class="top-buttons">
+
+    <a href="{{ url_for('create') }}">
+
+        <button>
+            Create New ❤️
+        </button>
+
+    </a>
+
+    <a href="{{ url_for('logout') }}">
+
+        <button>
+            Logout
+        </button>
+
+    </a>
+
+</div>
+
+{% if sites %}
+
+    {% for site in sites %}
+
+    <div class="card">
+
+        <h2>
+            {{ site.lover_name }}
+        </h2>
+
+        <div class="buttons">
+
+            <a href="{{ url_for('love_page', share_id=site.share_id) }}">
+
+                <button>
+                    Open Website 💖
+                </button>
+
+            </a>
+
+            <input type="text"
+                   value="{{ request.host_url }}love/{{ site.share_id }}"
+                   id="link{{ loop.index }}"
+                   readonly>
+
+            <button onclick="copyLink('link{{ loop.index }}')">
+
+                Copy Link 🔗
+
+            </button>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <div class="card">
+
+        <h2>No Websites Created Yet 😢</h2>
+
+    </div>
+
+{% endif %}
+
+<script>
+
+function copyLink(id){
+
+    let copyText = document.getElementById(id);
+
+    copyText.select();
+
+    copyText.setSelectionRange(0, 99999);
+
+    navigator.clipboard.writeText(copyText.value);
+
+    alert("Link Copied ❤️");
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+body{
+    margin:0;
+    padding:40px;
+    font-family:'Segoe UI',sans-serif;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff4e8a,
+        #ff9a9e
+    );
+
+    color:white;
+}
+
+h1{
+    font-size:50px;
+    margin-bottom:30px;
+}
+
+.top-buttons{
+    margin-bottom:30px;
+}
+
+button{
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#ff4e8a;
+
+    font-weight:bold;
+
+    margin-right:10px;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.card{
+
+    background:rgba(255,255,255,0.12);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    margin-top:20px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:bold;
+}
